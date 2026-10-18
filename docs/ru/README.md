@@ -13,7 +13,15 @@
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![docs-check](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml/badge.svg)](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml)
 
-<!-- TODO: скриншоты -->
+![Десктоп-компаньон vaultify — доска задач](../../assets/screenshots/board.png)
+
+| Открытый handoff → resume | Поиск по vault'ам |
+|---|---|
+| ![Утренний resume-блок](../../assets/screenshots/memory.png) | ![Поиск по хранилищам](../../assets/screenshots/search.png) |
+
+*На скринах — десктоп-компаньон (русский интерфейс, тёмная тема) на демо-воркспейсе:
+пять канбан-колонок, утренний блок подхвата handoff'а и префиксный поиск по
+проиндексированным заметкам.*
 
 ## Почему
 

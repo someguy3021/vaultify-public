@@ -13,7 +13,15 @@ dependencies, no LLM in the core.
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![docs-check](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml/badge.svg)](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml)
 
-<!-- TODO: screenshots -->
+![vaultify desktop companion — the task board](assets/screenshots/board.png)
+
+| Open handoff → resume | Search across vaults |
+|---|---|
+| ![Morning resume block](assets/screenshots/memory.png) | ![Vault search](assets/screenshots/search.png) |
+
+*Screenshots show the desktop companion (Russian interface, dark theme) working
+against a demo workspace: five kanban columns, the morning handoff-resume block,
+and prefix search over indexed vault notes.*
 
 ## Why
 

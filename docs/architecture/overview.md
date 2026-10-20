@@ -58,7 +58,7 @@ Code; others later) with:
 ## Data layers
 
 ```
-USER VAULTS (the canon)                    META-REPO ~/vaultify/ (what the app owns)
+USER VAULTS (the canon)                    META-REPO <install>/home/ (what the app owns)
 ├── ~/Notes/Work    [git: own]             ├── config.*   ← settings: vault registry,
 ├── ~/Notes/Life    [git: none]            │                 layout maps, git modes
 └── ~/Zettel        [git: shared]          ├── tasks.db   ← SQLite task registry (kanban)
@@ -86,7 +86,7 @@ provenance — a frontmatter link to its source session (`source: vaultify/S-NNN
 Pure core modules (`src/*.ts`, no `node:*`): argument utilities, markdown
 parsing (frontmatter / wikilinks), layout profiles with auto-detection, the
 vault registry, the scan/ranking/snippet plan, the kanban core, the memory
-formats. Shells (`*-run.ts`): the meta-repo (`~/vaultify/`, `VAULTIFY_HOME`
+formats. Shells (`*-run.ts`): the meta-repo (`<install>/home/`, `VAULTIFY_HOME`
 overrides), the SQLite inverted index, git strategies (`own`/`shared`/`none`
 detection, `status`/`sync` with auto-commit and `pull --rebase`), the kanban
 database, memory files, the MCP stdio server, integrations install/doctor.

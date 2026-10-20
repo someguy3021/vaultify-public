@@ -13,6 +13,8 @@
 
 ```
 vaultify init
+vaultify where
+vaultify deploy <dir>
 vaultify vault add <path> [--name N] [--git own|shared|none] [--layout strict|flex|single]
 vaultify vault list | show <name> [--json] | rm <name> | map <name> [--preset P] [--set type=folder]...
 vaultify scan [--vault name] [--json]
@@ -36,9 +38,14 @@ vaultify help
 
 ### Setup
 
-- **`vaultify init`** — create the meta-repo `~/vaultify/` (the `VAULTIFY_HOME`
+- **`vaultify init`** — create the data home `<install>/home/` (the `VAULTIFY_HOME`
   environment variable overrides the location): settings, the vault registry,
   `memory/`, a git repository.
+- **`vaultify where`** — print the deployment folder (artifacts) and the data home.
+- **`vaultify deploy <dir>`** — deploy the artifacts (`vaultify.exe`, the UI exe when
+  built) into one folder; the data home then lives at `<dir>/home`. Moving the folder
+  moves everything; after a move re-run `integrations install` from the new location
+  (hook paths are absolute by design).
 - **`vaultify doctor`** — environment diagnostics: node, git, the meta-repo,
   index freshness, the MCP wiring.
 

@@ -55,7 +55,7 @@ Claude Code; позже — другие) даёт:
 ## Слои данных
 
 ```
-VAULT'Ы ПОЛЬЗОВАТЕЛЯ (канон)                МЕТА-РЕПА ~/vaultify/ (владение приложения)
+VAULT'Ы ПОЛЬЗОВАТЕЛЯ (канон)                МЕТА-РЕПА <install>/home/ (владение приложения)
 ├── ~/Notes/Work    [git: own]              ├── config.*   ← настройки: реестр vault'ов,
 ├── ~/Notes/Life    [git: none]             │                 layout-маппинги, git-режимы
 └── ~/Zettel        [git: shared]           ├── tasks.db   ← SQLite-реестр задач (канбан)
@@ -83,7 +83,7 @@ handoff'ы) — неизменяемое, в мета-репе; дистилля
 Чистые модули ядра (`src/*.ts`, без `node:*`): утилиты аргументов, парсинг
 markdown (frontmatter / викилинки), layout-профили с авто-детектом, реестр
 vault'ов, план скана/ранжирования/сниппетов, ядро канбана, форматы памяти.
-Обвязки (`*-run.ts`): мета-репа (`~/vaultify/`, env `VAULTIFY_HOME`),
+Обвязки (`*-run.ts`): мета-репа (`<install>/home/`, env `VAULTIFY_HOME`),
 SQLite-инверт-индекс, git-стратегии (детект `own`/`shared`/`none`,
 `status`/`sync` с автокоммитом и `pull --rebase`), база канбана, файлы памяти,
 MCP stdio-сервер, integrations install/doctor.

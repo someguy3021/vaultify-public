@@ -9,7 +9,7 @@ dependencies, no LLM in the core.
 ![License: CC BY 4.0](https://img.shields.io/badge/license-CC_BY_4.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A522.5-339933?logo=nodedotjs&logoColor=white)
 ![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-brightgreen)
-![Tests](https://img.shields.io/badge/tests-57-green)
+![Tests](https://img.shields.io/badge/tests-59-green)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![docs-check](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml/badge.svg)](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml)
 
@@ -59,21 +59,21 @@ Two memory layers, after Karpathy's LLM Wiki pattern:
 
 1. **Raw layer** — immutable. Session summaries (`memory/sessions/S-NNNN.md`)
    and handoffs (`memory/handoffs/H-NNNN.md`) live as plain markdown in the git
-   meta-repo `~/vaultify/`. Written through the CLI at the end of every
+   meta-repo `<install>/home/`. Written through the CLI at the end of every
    meaningful stretch of work; never edited retroactively.
 2. **Distillate** — living. Valuable conclusions become ordinary Obsidian notes
    in the user's vaults, with provenance in the frontmatter
    (`source: vaultify/S-0042`) and `[[wikilinks]]` to what already exists.
 
 The **canon is the user's data**: the application owns only the meta-repo
-(`~/vaultify/`); delete it and nothing of yours is lost. And the canon stays
+(`<install>/home/`); delete it and nothing of yours is lost. And the canon stays
 single — the vaults, not an app-owned wiki. Writing into a vault is
 **deterministic**: the layout profile in the registry maps each note type to a
 folder (unknown types fall back to an inbox folder), so the skill decides
 *what* the note is, never *where* it goes.
 
 ```
-USER VAULTS (the canon)                    META-REPO ~/vaultify/ (what the app owns)
+USER VAULTS (the canon)                    META-REPO <install>/home/ (what the app owns)
 ├── ~/Notes/Work    [git: own]             ├── config.*   ← settings: vault registry,
 ├── ~/Notes/Life    [git: none]            │                 layout maps, git modes
 └── ~/Zettel        [git: shared]          ├── tasks.db   ← SQLite task registry (kanban)
@@ -99,10 +99,16 @@ pnpm build          # → dist/
 pnpm build:sea      # → dist/sea/vaultify.exe — a single self-contained binary
 ```
 
+**Where it lives (one-folder deployment):** put `vaultify.exe` anywhere you keep
+tools (e.g. `D:/tools/vaultify/`) — `vaultify init` creates the data home at
+`<that folder>/home/`. Everything — binaries and data — stays in one folder you can
+move or back up as a whole; `VAULTIFY_HOME` relocates the data if you want it
+elsewhere.
+
 Then wire it up:
 
 ```
-vaultify init                            # creates the meta-repo ~/vaultify/
+vaultify init                            # creates the meta-repo <install>/home/
 vaultify vault add ~/Notes/Work          # registers a vault (git mode + layout auto-detected)
 vaultify scan                            # builds the search index
 vaultify search "quarterly goals"        # one search over all vaults, tasks and memory
@@ -129,7 +135,7 @@ alternatives lives in
 | R6 | Two memory layers: raw (sessions/handoffs) → distillate (vault notes with provenance) |
 | R7 | Raw memory is markdown in a git meta-repo — human-readable, git history for free |
 | R8 | Tasks: SQLite registry with kanban statuses `inbox/doing/waiting/someday/done` |
-| R9 | All app data in one meta-repo `~/vaultify/`: config, tasks.db, memory/, index.db |
+| R9 | All app data in one meta-repo `<install>/home/`: config, tasks.db, memory/, index.db |
 | R10 | Git without dogma: per-vault strategies `own`/`shared`/`none` + `status`/`sync` |
 | R11 | A flat world: one global search and one board; separation by tags and filters |
 | R12 | A vault = any folder with markdown; Obsidian gets the polish (frontmatter, wikilinks) |

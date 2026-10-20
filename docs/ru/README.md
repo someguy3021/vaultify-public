@@ -9,7 +9,7 @@
 ![License: CC BY 4.0](https://img.shields.io/badge/license-CC_BY_4.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A522.5-339933?logo=nodedotjs&logoColor=white)
 ![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-brightgreen)
-![Tests](https://img.shields.io/badge/tests-57-green)
+![Tests](https://img.shields.io/badge/tests-59-green)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![docs-check](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml/badge.svg)](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml)
 
@@ -60,20 +60,20 @@ vaultify отвечает тонким детерминированным сло
 
 1. **Сырой слой** — неизменяемый. Итоги сессий (`memory/sessions/S-NNNN.md`) и
    handoff'ы (`memory/handoffs/H-NNNN.md`) лежат обычным markdown в git-мета-репе
-   `~/vaultify/`. Пишутся через CLI в конце каждого значимого куска работы;
+   `<install>/home/`. Пишутся через CLI в конце каждого значимого куска работы;
    задним числом не редактируются.
 2. **Дистиллят** — живой. Ценные выводы становятся обычными заметками Obsidian
    в vault'ах пользователя, с провенансом во frontmatter
    (`source: vaultify/S-0042`) и `[[викилинками]]` на то, что уже есть.
 
 **Канон — данные пользователя**: приложение владеет только мета-репой
-(`~/vaultify/`); снёс её — ничего своего не потерял. И канон один — vault'ы,
+(`<install>/home/`); снёс её — ничего своего не потерял. И канон один — vault'ы,
 а не вики приложения. Запись в vault **детерминирована**: layout-профиль из
 реестра маппит тип заметки на папку (незнакомые типы — во fallback-папку),
 так что скилл решает, *чем* является заметка, но никогда — *куда* она падает.
 
 ```
-VAULT'Ы ПОЛЬЗОВАТЕЛЯ (канон)                МЕТА-РЕПА ~/vaultify/ (владение приложения)
+VAULT'Ы ПОЛЬЗОВАТЕЛЯ (канон)                МЕТА-РЕПА <install>/home/ (владение приложения)
 ├── ~/Notes/Work    [git: own]              ├── config.*   ← настройки: реестр vault'ов,
 ├── ~/Notes/Life    [git: none]             │                 layout-маппинги, git-режимы
 └── ~/Zettel        [git: shared]           ├── tasks.db   ← SQLite-реестр задач (канбан)
@@ -99,10 +99,16 @@ pnpm build          # → dist/
 pnpm build:sea      # → dist/sea/vaultify.exe — один самодостаточный бинарь
 ```
 
+**Где что лежит (развёртывание одной папкой):** положи `vaultify.exe` куда угодно
+среди своих инструментов (например `D:/tools/vaultify/`) — `vaultify init` создаст
+дом данных в `<эта папка>/home/`. Всё — бинари и данные — живёт в одной папке,
+которую можно переносить и бэкапить целиком; `VAULTIFY_HOME` уводит данные в другое
+место, если нужно.
+
 Дальше разводка:
 
 ```
-vaultify init                            # создаёт мета-репу ~/vaultify/
+vaultify init                            # создаёт мета-репу <install>/home/
 vaultify vault add ~/Notes/Work          # регистрирует vault (git-режим и layout — авто)
 vaultify scan                            # строит поисковый индекс
 vaultify search "квартальные цели"       # один поиск по всем vault'ам, задачам и памяти
@@ -129,7 +135,7 @@ vaultify doctor                          # проверяет разводку
 | R6 | Два слоя памяти: сырьё (сессии/handoff'ы) → дистиллят (заметки с провенансом) |
 | R7 | Сырая память — markdown в git-мета-репе: человекочитаемо, git-история бесплатно |
 | R8 | Задачи: SQLite-реестр с канбан-статусами `inbox/doing/waiting/someday/done` |
-| R9 | Все данные приложения — в одной мета-репе `~/vaultify/`: config, tasks.db, memory/, index.db |
+| R9 | Все данные приложения — в одной мета-репе `<install>/home/`: config, tasks.db, memory/, index.db |
 | R10 | Git без догмы: per-vault стратегии `own`/`shared`/`none` + `status`/`sync` |
 | R11 | Плоский мир: один глобальный поиск и одна доска; разделение тегами и фильтрами |
 | R12 | Vault = любая папка с markdown; полировка — для Obsidian (frontmatter, викилинки) |

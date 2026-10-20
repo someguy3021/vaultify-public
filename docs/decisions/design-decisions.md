@@ -22,7 +22,7 @@
 | R6 | Agent memory | Two layers: raw (sessions/handoffs, markdown, meta-repo) → distillate (notes in the vaults, with provenance) | A single layer; SQLite-backed memory |
 | R7 | Raw memory format | Markdown in the git meta-repo (human-readable, git history for free) | SQLite rows (as in ai-memory) |
 | R8 | Tasks | An SQLite registry (devst-style) with **kanban statuses**: `inbox/doing/waiting/someday/done` | Markdown cards; a minimal set of statuses |
-| R9 | Application data | One meta-repo `~/vaultify/`: config, tasks.db, memory/, index.db | Several repos; a wiki inside the meta-repo |
+| R9 | Application data | One meta-repo `<install>/home/`: config, tasks.db, memory/, index.db | Several repos; a wiki inside the meta-repo |
 | R10 | Git nativeness | Per-vault strategies: `own` (default) / `shared` (inside someone else's repo) / `none`; meta-commands `status`/`sync` | A hard "1 vault = 1 repo"; a custom sync protocol |
 | R11 | Spaces | **A flat world**: one global search and one board; separation by tags and filters | Domain spaces; typed entities |
 | R12 | What counts as a "storage" | A vault = any folder with markdown; the focus and polish are on Obsidian (frontmatter, `[[wikilinks]]`; `.obsidian/` and plugins are ignored gently) | Only real vaults with `.obsidian/` |
@@ -55,7 +55,7 @@ The decisions above were made against explicit alternatives, each worth naming:
 - **An SQLite canon of knowledge.** A structured store as the source of truth
   would create double truth against the Obsidian vaults the user already
   maintains. The canon must be single — and it is the vaults.
-- **An application-owned wiki** (a `~/vaultify/wiki/` of distilled notes, as in
+- **An application-owned wiki** (a `<install>/home/wiki/` of distilled notes, as in
   claude-obsidian or LLM Wiki). The same objection: it would build a second
   brain next to the user's first one. Distillate goes into the vaults instead.
 - **Spaces / domains with permissions.** Typed spaces and per-domain access

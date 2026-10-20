@@ -12,6 +12,8 @@
 
 ```
 vaultify init
+vaultify where
+vaultify deploy <dir>
 vaultify vault add <путь> [--name N] [--git own|shared|none] [--layout strict|flex|single]
 vaultify vault list | show <имя> [--json] | rm <имя> | map <имя> [--preset P] [--set тип=папка]...
 vaultify scan [--vault имя] [--json]
@@ -35,8 +37,13 @@ vaultify help
 
 ### Настройка
 
-- **`vaultify init`** — создать мета-репу `~/vaultify/` (env `VAULTIFY_HOME`
+- **`vaultify init`** — создать дом данных `<install>/home/` (env `VAULTIFY_HOME`
   переопределяет место): настройки, реестр vault'ов, `memory/`, git-репозиторий.
+- **`vaultify where`** — показать папку развёртывания (артефакты) и дом данных.
+- **`vaultify deploy <dir>`** — развернуть артефакты (`vaultify.exe`, ui-exe если
+  собран) в одну папку; дом данных после init — `<dir>/home`. Переезд = перенести
+  папку целиком + заново `integrations install` из нового места (пути в хуках
+  абсолютные — сознательно).
 - **`vaultify doctor`** — диагностика окружения: node, git, мета-репа, свежесть
   индекса, разводка MCP.
 

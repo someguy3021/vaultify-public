@@ -16,7 +16,8 @@ vaultify init
 vaultify where
 vaultify deploy <dir>
 vaultify vault add <path> [--name N] [--git own|shared|none] [--layout strict|flex|single]
-vaultify vault list | show <name> [--json] | rm <name> | map <name> [--preset P] [--set type=folder]...
+vaultify vault list | show <name> [--json] | rm <name> | set <name> [--path <new>] [--git M] [--name <new>]
+vaultify vault map <name> [--preset P] [--set type=folder]...
 vaultify scan [--vault name] [--json]
 vaultify search <query> [--vault name] [--limit N] [--json]
 vaultify status [--json]
@@ -42,6 +43,9 @@ vaultify help
   environment variable overrides the location): settings, the vault registry,
   `memory/`, a git repository.
 - **`vaultify where`** — print the deployment folder (artifacts) and the data home.
+- **`vaultify vault set <name>`** — rename (`--name`), move (`--path`) or change the
+  git strategy (`--git`) of a vault without hand-editing the config; paths under the
+  user profile are stored in `~/…` form, so the config survives machine moves.
 - **`vaultify deploy <dir>`** — deploy the artifacts (`vaultify.exe`, the UI exe when
   built) into one folder; the data home then lives at `<dir>/home`. Moving the folder
   moves everything; after a move re-run `integrations install` from the new location

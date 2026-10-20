@@ -15,7 +15,8 @@ vaultify init
 vaultify where
 vaultify deploy <dir>
 vaultify vault add <путь> [--name N] [--git own|shared|none] [--layout strict|flex|single]
-vaultify vault list | show <имя> [--json] | rm <имя> | map <имя> [--preset P] [--set тип=папка]...
+vaultify vault list | show <имя> [--json] | rm <имя> | set <имя> [--path <новый>] [--git M] [--name <новое>]
+vaultify vault map <имя> [--preset P] [--set тип=папка]...
 vaultify scan [--vault имя] [--json]
 vaultify search <запрос> [--vault имя] [--limit N] [--json]
 vaultify status [--json]
@@ -40,6 +41,9 @@ vaultify help
 - **`vaultify init`** — создать дом данных `<install>/home/` (env `VAULTIFY_HOME`
   переопределяет место): настройки, реестр vault'ов, `memory/`, git-репозиторий.
 - **`vaultify where`** — показать папку развёртывания (артефакты) и дом данных.
+- **`vaultify vault set <имя>`** — переименовать (`--name`), перенести (`--path`) или
+  сменить git-стратегию (`--git`) без ручной правки конфига; пути под профилем
+  хранятся в `~/…`-форме — конфиг переживает переезд машины.
 - **`vaultify deploy <dir>`** — развернуть артефакты (`vaultify.exe`, ui-exe если
   собран) в одну папку; дом данных после init — `<dir>/home`. Переезд = перенести
   папку целиком + заново `integrations install` из нового места (пути в хуках

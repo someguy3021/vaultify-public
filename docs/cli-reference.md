@@ -19,6 +19,7 @@ vaultify vault add <path> [--name N] [--git own|shared|none] [--layout strict|fl
 vaultify vault list | show <name> [--json] | rm <name> | set <name> [--path <new>] [--git M] [--name <new>]
 vaultify vault map <name> [--preset P] [--set type=folder]...
 vaultify scan [--vault name] [--json]
+vaultify vault target <name> --type journal|projects|concepts|people|sources [--json]
 vaultify search <query> [--vault name] [--limit N] [--json]
 vaultify status [--json]
 vaultify sync [--dry]
@@ -43,6 +44,9 @@ vaultify help
   environment variable overrides the location): settings, the vault registry,
   `memory/`, a git repository.
 - **`vaultify where`** — print the deployment folder (artifacts) and the data home.
+- **`vaultify vault target <name> --type T`** — print the resolved target folder for a
+  note type (layout mapping, fallback included). Skills write where this command says —
+  never inventing a path.
 - **`vaultify vault set <name>`** — rename (`--name`), move (`--path`) or change the
   git strategy (`--git`) of a vault without hand-editing the config; paths under the
   user profile are stored in `~/…` form, so the config survives machine moves.

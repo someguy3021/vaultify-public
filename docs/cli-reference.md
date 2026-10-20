@@ -14,9 +14,10 @@
 ```
 vaultify init
 vaultify where
+vaultify remote [<url>]
 vaultify deploy <dir>
 vaultify vault add <path> [--name N] [--git own|shared|none] [--layout strict|flex|single]
-vaultify vault list | show <name> [--json] | rm <name> | set <name> [--path <new>] [--git M] [--name <new>]
+vaultify vault list [--json] | show <name> [--json] | rm <name> | set <name> [--path <new>] [--git M] [--name <new>]
 vaultify vault map <name> [--preset P] [--set type=folder]...
 vaultify scan [--vault name] [--json]
 vaultify vault target <name> --type journal|projects|concepts|people|sources [--json]
@@ -44,6 +45,8 @@ vaultify help
   environment variable overrides the location): settings, the vault registry,
   `memory/`, a git repository.
 - **`vaultify where`** — print the deployment folder (artifacts) and the data home.
+- **`vaultify remote <url>`** — bind (or show) the git remote of the data home, so
+  `vaultify sync` backs up and transfers the board, memory and settings.
 - **`vaultify vault target <name> --type T`** — print the resolved target folder for a
   note type (layout mapping, fallback included). Skills write where this command says —
   never inventing a path.

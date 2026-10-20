@@ -13,9 +13,10 @@
 ```
 vaultify init
 vaultify where
+vaultify remote [<url>]
 vaultify deploy <dir>
 vaultify vault add <путь> [--name N] [--git own|shared|none] [--layout strict|flex|single]
-vaultify vault list | show <имя> [--json] | rm <имя> | set <имя> [--path <новый>] [--git M] [--name <новое>]
+vaultify vault list [--json] | show <имя> [--json] | rm <имя> | set <имя> [--path <новый>] [--git M] [--name <новое>]
 vaultify vault map <имя> [--preset P] [--set тип=папка]...
 vaultify scan [--vault имя] [--json]
 vaultify vault target <имя> --type journal|projects|concepts|people|sources [--json]
@@ -42,6 +43,8 @@ vaultify help
 - **`vaultify init`** — создать дом данных `<install>/home/` (env `VAULTIFY_HOME`
   переопределяет место): настройки, реестр vault'ов, `memory/`, git-репозиторий.
 - **`vaultify where`** — показать папку развёртывания (артефакты) и дом данных.
+- **`vaultify remote <url>`** — привязать (или показать) git-remote дома данных, чтобы
+  `vaultify sync` бэкапил и переносил доску, память и настройки.
 - **`vaultify vault target <имя> --type T`** — печатает resolved-папку для типа заметки
   (маппинг layout, fallback включён). Скиллы пишут туда, куда говорит команда, —
   путь не выдумывается.

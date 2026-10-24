@@ -9,7 +9,7 @@ dependencies, no LLM in the core.
 ![License: CC BY 4.0](https://img.shields.io/badge/license-CC_BY_4.0-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A522.5-339933?logo=nodedotjs&logoColor=white)
 ![Runtime dependencies](https://img.shields.io/badge/runtime_dependencies-0-brightgreen)
-![Tests](https://img.shields.io/badge/tests-73-green)
+![Tests](https://img.shields.io/badge/tests-74-green)
 ![Platform](https://img.shields.io/badge/platform-Windows-blue)
 [![docs-check](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml/badge.svg)](https://github.com/someguy3021/vaultify-public/actions/workflows/docs-check.yml)
 
